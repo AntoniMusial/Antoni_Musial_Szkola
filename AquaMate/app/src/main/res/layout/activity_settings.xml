@@ -23,7 +23,6 @@
         android:textColorHint="#00BCD4"
         android:textColorLink="#00BCD4"
         android:textSize="20sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -150,7 +149,6 @@
         android:textColorHint="#00BCD4"
         android:textColorLink="#00BCD4"
         android:textSize="20sp"
-        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/wyborLimituWody" />
@@ -209,5 +207,25 @@
             android:visibility="visible"
             tools:visibility="visible" />
     </LinearLayout>
+
+    <Button
+        android:id="@+id/kalkulatorButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:backgroundTint="#0B0B0B"
+        android:paddingLeft="40dp"
+        android:paddingTop="10dp"
+        android:paddingRight="40dp"
+        android:paddingBottom="10dp"
+        android:text="Kalkulator\nzapotrzebowania wody"
+        android:textColor="#00BCD4"
+        android:textColorHighlight="#00BCD4"
+        android:textColorHint="#00BCD4"
+        android:textColorLink="#00BCD4"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resetujUstawienia" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

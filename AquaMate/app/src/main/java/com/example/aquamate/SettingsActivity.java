@@ -2,7 +2,9 @@ package com.example.aquamate;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+
 import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.View;
@@ -15,6 +17,7 @@ public class SettingsActivity extends AppCompatActivity {
     Button home_button;
     Button settings_button;
     Button zapiszButton;
+    Button kalkulatorButton;
     EditText wyborImienia;
     EditText wyborLimituWody;
     TextView NameSpace;
@@ -30,6 +33,7 @@ public class SettingsActivity extends AppCompatActivity {
         settings_button = findViewById(R.id.settings_button);
         home_button = findViewById(R.id.home_button);
         zapiszButton = findViewById(R.id.zapiszButton);
+        kalkulatorButton = findViewById(R.id.kalkulatorButton);
         wyborImienia = findViewById(R.id.wyborImienia);
         wyborLimituWody = findViewById(R.id.wyborLimituWody);
         NameSpace = findViewById(R.id.NameSpace);
@@ -54,15 +58,21 @@ public class SettingsActivity extends AppCompatActivity {
         });
 
         home_button.setOnClickListener(v -> {
-            Intent intent = new Intent();
+            Intent intent = new Intent(SettingsActivity.this, MainActivity.class);
             intent.putExtra("imie", imie);
             intent.putExtra("limitWodyMl", limitWodyMl);
             setResult(RESULT_OK, intent);
+            startActivity(intent);
             finish();
         });
 
         settings_button.setOnClickListener(v -> {
             showShortToast("Jesteś tu!");
+        });
+
+        kalkulatorButton.setOnClickListener(v -> {
+            Intent intent2 = new Intent(SettingsActivity.this, CalculatorActivity.class);
+            startActivity(intent2);
         });
     }
 

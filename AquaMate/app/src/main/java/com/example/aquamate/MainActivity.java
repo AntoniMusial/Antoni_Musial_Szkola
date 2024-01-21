@@ -6,6 +6,7 @@ import android.preference.PreferenceManager;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -14,6 +15,9 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 import android.content.Intent;
 import android.widget.Toast;
+
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 public class MainActivity extends AppCompatActivity {
     SeekBar Suwak_ml;
@@ -32,6 +36,13 @@ public class MainActivity extends AppCompatActivity {
     int wypiteMl;
     int limitWodyMl_l;
     static final int USTAWIENIA_REQUEST = 1;
+    String dateTime;
+    Calendar calendar;
+    SimpleDateFormat simpleDateFormat;
+    SimpleDateFormat simpleDateFormatDay;
+    TextView format1;
+    int oldDay;
+    int newDay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,6 +59,12 @@ public class MainActivity extends AppCompatActivity {
         home_button = findViewById(R.id.home_button);
         NameSpace = findViewById(R.id.NameSpace);
         Cel_wody = findViewById(R.id.Cel_wody);
+        format1 = (TextView) findViewById(R.id.format1);
+
+        calendar = Calendar.getInstance();
+        simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss aaa");
+        dateTime = simpleDateFormat.format(calendar.getTime()).toString();
+        oldDay = calendar.get(Calendar.DAY_OF_MONTH);
 
         NameSpace.setText("Witaj " + imie);
         Cel_wody.setText("Twój dzisiejszy cel 1500ml");
@@ -56,8 +73,8 @@ public class MainActivity extends AppCompatActivity {
         LicznikWody_wykres.setMax(1500);
         Wyswietl_dodawane_ml.setText("Dodaj " + 250 + "ml");
         Suwak_ml.setProgress(250);
-        Suwak_ml.setMax(1000);
-
+        Suwak_ml.setMax(1001);
+        format1.setText(dateTime);
 
         home_button.setOnClickListener(v -> {
             showShortToast("Jesteś tu!");
@@ -72,8 +89,12 @@ public class MainActivity extends AppCompatActivity {
             int progressWykres = LicznikWody_wykres.getProgress();
 
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                suwak_ml = progress;
-                Wyswietl_dodawane_ml.setText("Dodaj " + suwak_ml + "ml");
+                for (int i = 0; i < 1001; i = i + 50) {
+                    if (progress > i && progress < (i * 2)) {
+                        suwak_ml = (i);
+                        Wyswietl_dodawane_ml.setText("Dodaj " + suwak_ml + "ml");
+                    }
+                }
             }
 
             public void onStartTrackingTouch(SeekBar seekBar) {
@@ -117,13 +138,14 @@ public class MainActivity extends AppCompatActivity {
             LicznikWody_wykres.setProgress(wypiteMl);
             LicznikWody_wykres.setMax(1500);
         }
+        dailyUpdate();
 
         NameSpace.setText("Witaj " + imie);
         Wyswietl_dodawane_ml.setText("Dodaj " + suwak_ml + "ml");
         Cel_wody.setText("Twój dzisiejszy cel " + limitWodyMl_l + "ml");
         Wyswietl_dodawane_ml.setText("Dodaj " + 250 + "ml");
         Suwak_ml.setProgress(250);
-        Suwak_ml.setMax(1000);
+        Suwak_ml.setMax(1001);
     }
 
     public void addMl(int progressSuwak) {
@@ -161,6 +183,7 @@ public class MainActivity extends AppCompatActivity {
         limitWodyMl = preferences.getString("limitWodyMl", "");
 
         updateUI();
+        dailyUpdate();
 
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString("limitWodyMl", limitWodyMl);
@@ -172,13 +195,13 @@ public class MainActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-
     private void updateUI() {
         if (limitWodyMl != null && !limitWodyMl.isEmpty() && limitWodyMl != "") {
             limitWodyMl_l = Integer.parseInt(limitWodyMl);
             Cel_wody.setText("Twój dzisiejszy cel " + limitWodyMl_l + "ml");
             LicznikWody_wykres.setMax(limitWodyMl_l);
             LicznikWody_text.setText(wypiteMl + "/" + limitWodyMl_l + "ml");
+            LicznikWody_wykres.setProgress(wypiteMl);
         }
 
         if (imie != null) {
@@ -186,7 +209,17 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void appStart() {
-
+    private void dailyUpdate() {
+        newDay = calendar.get(Calendar.DAY_OF_MONTH);
+        if (oldDay != newDay) {
+            wypiteMl = 0;
+            SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putInt("wypiteMl", wypiteMl);
+            editor.apply();
+            LicznikWody_text.setText(wypiteMl + "/" + limitWodyMl_l + "ml");
+            LicznikWody_wykres.setProgress(wypiteMl);
+            oldDay = newDay;
+        }
     }
 }

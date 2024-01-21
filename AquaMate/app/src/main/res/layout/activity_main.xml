@@ -10,20 +10,18 @@
     tools:visibility="visible">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="413dp"
+        android:id="@+id/linearLayout3"
+        android:layout_width="407dp"
         android:layout_height="27dp"
-        android:orientation="vertical"
-        android:visibility="visible"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/NameSpace"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:baselineAligned="false"
             android:editable="false"
@@ -36,15 +34,22 @@
             android:visibility="visible"
             tools:visibility="visible" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="409dp"
-            android:layout_height="1dp"
-            android:background="#00BCD4"
-            android:backgroundTint="#00BCD4"
+        <TextView
+            android:id="@+id/format1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:baselineAligned="false"
+            android:editable="false"
+            android:padding="4dp"
+            android:text="data"
+            android:textAlignment="textEnd"
+            android:textColor="#00BCD4"
+            android:textColorHighlight="#00BCD4"
+            android:textColorHint="#00BCD4"
+            android:textColorLink="#00BCD4"
             android:visibility="visible"
-            tools:visibility="visible">
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            tools:visibility="visible" />
 
     </LinearLayout>
 
@@ -52,7 +57,7 @@
         android:id="@+id/Cel_wody"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:layout_weight="1"
         android:text="Twój dzisiejszy cel 1500ml"
         android:textAlignment="center"
@@ -64,7 +69,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3"
         tools:visibility="visible" />
 
     <ProgressBar
@@ -129,11 +134,24 @@
         app:layout_constraintTop_toBottomOf="@+id/LicznikWody_wykres"
         tools:visibility="visible" />
 
+    <ImageButton
+        android:id="@+id/ImgView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="136dp"
+        android:backgroundTint="#171717"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/resetButton"
+        app:srcCompat="@drawable/kropla"
+        tools:visibility="visible" />
+
     <TextView
         android:id="@+id/Wyswietl_dodawane_ml"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
         android:text="Dodaj 250ml"
         android:textColor="#00BCD4"
         android:textColorHighlight="#00BCD4"
@@ -142,35 +160,20 @@
         android:textSize="20sp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/resetButton"
-        tools:visibility="visible" />
-
-    <ImageButton
-        android:id="@+id/ImgView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:backgroundTint="#171717"
-        android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Wyswietl_dodawane_ml"
-        app:srcCompat="@drawable/kropla"
+        app:layout_constraintTop_toBottomOf="@+id/ImgView"
         tools:visibility="visible" />
 
     <SeekBar
         android:id="@+id/Suwak_ml"
         android:layout_width="384dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
         android:indeterminate="false"
         android:progressTint="#00BCD4"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ImgView"
+        app:layout_constraintTop_toBottomOf="@+id/Wyswietl_dodawane_ml"
         tools:visibility="visible" />
 
     <LinearLayout
