@@ -10,20 +10,18 @@
     tools:visibility="visible">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="413dp"
+        android:id="@+id/linearLayout3"
+        android:layout_width="407dp"
         android:layout_height="27dp"
-        android:orientation="vertical"
-        android:visibility="visible"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:visibility="visible">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/NameSpace"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
             android:baselineAligned="false"
             android:editable="false"
@@ -36,16 +34,22 @@
             android:visibility="visible"
             tools:visibility="visible" />
 
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="409dp"
-            android:layout_height="1dp"
-            android:background="#00BCD4"
-            android:backgroundTint="#00BCD4"
+        <TextView
+            android:id="@+id/format1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:baselineAligned="false"
+            android:editable="false"
+            android:padding="4dp"
+            android:text="data"
+            android:textAlignment="textEnd"
+            android:textColor="#00BCD4"
+            android:textColorHighlight="#00BCD4"
+            android:textColorHint="#00BCD4"
+            android:textColorLink="#00BCD4"
             android:visibility="visible"
-            tools:layout_editor_absoluteY="26dp"
-            tools:visibility="visible">
-
-        </androidx.constraintlayout.widget.ConstraintLayout>
+            tools:visibility="visible" />
 
     </LinearLayout>
 
@@ -66,7 +70,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
         <TextView
             android:id="@+id/TV"

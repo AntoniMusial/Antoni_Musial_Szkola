@@ -2,6 +2,7 @@ package com.example.aquamate;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.preference.PreferenceManager;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,6 +19,7 @@ import android.widget.Toast;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
     SeekBar Suwak_ml;
@@ -39,15 +41,20 @@ public class MainActivity extends AppCompatActivity {
     String dateTime;
     Calendar calendar;
     SimpleDateFormat simpleDateFormat;
-    SimpleDateFormat simpleDateFormatDay;
     TextView format1;
     int oldDay;
     int newDay;
+    int oldSecond;
+    int newSecond;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        Thread myThread = null;
+        Runnable myRunnableThread = new CountDownRunner();
+        myThread= new Thread(myRunnableThread);
+        myThread.start();
 
         Wyswietl_dodawane_ml = findViewById(R.id.Wyswietl_dodawane_ml);
         Suwak_ml = findViewById(R.id.Suwak_ml);
@@ -62,9 +69,10 @@ public class MainActivity extends AppCompatActivity {
         format1 = (TextView) findViewById(R.id.format1);
 
         calendar = Calendar.getInstance();
-        simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss aaa");
+        simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
         dateTime = simpleDateFormat.format(calendar.getTime()).toString();
         oldDay = calendar.get(Calendar.DAY_OF_MONTH);
+        timeUpdate();
 
         NameSpace.setText("Witaj " + imie);
         Cel_wody.setText("Twój dzisiejszy cel 1500ml");
@@ -138,14 +146,15 @@ public class MainActivity extends AppCompatActivity {
             LicznikWody_wykres.setProgress(wypiteMl);
             LicznikWody_wykres.setMax(1500);
         }
-        dailyUpdate();
 
         NameSpace.setText("Witaj " + imie);
         Wyswietl_dodawane_ml.setText("Dodaj " + suwak_ml + "ml");
         Cel_wody.setText("Twój dzisiejszy cel " + limitWodyMl_l + "ml");
-        Wyswietl_dodawane_ml.setText("Dodaj " + 250 + "ml");
-        Suwak_ml.setProgress(250);
+        Suwak_ml.setProgress(251);
         Suwak_ml.setMax(1001);
+
+        dailyUpdate();
+        timeUpdate();
     }
 
     public void addMl(int progressSuwak) {
@@ -181,21 +190,6 @@ public class MainActivity extends AppCompatActivity {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         imie = preferences.getString("imie", "");
         limitWodyMl = preferences.getString("limitWodyMl", "");
-
-        updateUI();
-        dailyUpdate();
-
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.putString("limitWodyMl", limitWodyMl);
-        editor.apply();
-    }
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-    }
-
-    private void updateUI() {
         if (limitWodyMl != null && !limitWodyMl.isEmpty() && limitWodyMl != "") {
             limitWodyMl_l = Integer.parseInt(limitWodyMl);
             Cel_wody.setText("Twój dzisiejszy cel " + limitWodyMl_l + "ml");
@@ -203,10 +197,20 @@ public class MainActivity extends AppCompatActivity {
             LicznikWody_text.setText(wypiteMl + "/" + limitWodyMl_l + "ml");
             LicznikWody_wykres.setProgress(wypiteMl);
         }
-
         if (imie != null) {
             NameSpace.setText("Witaj " + imie);
         }
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString("limitWodyMl", limitWodyMl);
+        editor.apply();
+
+        dailyUpdate();
+        timeUpdate();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
     }
 
     private void dailyUpdate() {
@@ -220,6 +224,54 @@ public class MainActivity extends AppCompatActivity {
             LicznikWody_text.setText(wypiteMl + "/" + limitWodyMl_l + "ml");
             LicznikWody_wykres.setProgress(wypiteMl);
             oldDay = newDay;
+        }
+    }
+
+    private void timeUpdate() {
+        newSecond = calendar.get(Calendar.SECOND);
+        if (oldSecond != newSecond) {
+            calendar = Calendar.getInstance();
+            simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
+            dateTime = simpleDateFormat.format(calendar.getTime()).toString();
+
+            oldSecond = newSecond;
+        }
+    }
+
+    public void doWork() {
+        runOnUiThread(new Runnable() {
+            public void run() {
+                try{
+                    Date dt = new Date();
+                    int days = calendar.get(Calendar.DAY_OF_MONTH);
+                    int months = calendar.get(Calendar.MONTH);
+                    int years = calendar.get(Calendar.YEAR);
+                    int hours = dt.getHours();
+                    int minutes = dt.getMinutes();
+                    int seconds = dt.getSeconds();
+
+                    if (seconds < 10) {
+                        s
+                    }
+                    String curTime = hours + ":" + minutes + ":" + seconds;
+                    format1.setText(days + "." + months + "." + years + "r." + " | " + hours + ":" + minutes + ":" + seconds);
+                }catch (Exception e) {}
+            }
+        });
+    }
+
+    class CountDownRunner implements Runnable{
+        // @Override
+        public void run() {
+            while(!Thread.currentThread().isInterrupted()){
+                try {
+                    doWork();
+                    Thread.sleep(1000); // Pause of 1 Second
+                } catch (InterruptedException e) {
+                    Thread.currentThread().interrupt();
+                }catch(Exception e){
+                }
+            }
         }
     }
 }

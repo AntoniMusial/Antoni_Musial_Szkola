@@ -13,6 +13,9 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
 public class SettingsActivity extends AppCompatActivity {
     Button home_button;
     Button settings_button;
@@ -24,6 +27,10 @@ public class SettingsActivity extends AppCompatActivity {
     Button resetujUstawienia;
     public String imie;
     public String limitWodyMl;
+    String dateTime;
+    Calendar calendar;
+    SimpleDateFormat simpleDateFormat;
+    TextView format1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,10 +45,15 @@ public class SettingsActivity extends AppCompatActivity {
         wyborLimituWody = findViewById(R.id.wyborLimituWody);
         NameSpace = findViewById(R.id.NameSpace);
         resetujUstawienia = findViewById(R.id.resetujUstawienia);
+        format1 = (TextView) findViewById(R.id.format1);
 
+        calendar = Calendar.getInstance();
+        simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
+        dateTime = simpleDateFormat.format(calendar.getTime()).toString();
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(this);
         imie = preferences.getString("imie", "");
         NameSpace.setText("Witaj " + imie);
+        format1.setText(dateTime);
 
         zapiszButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -110,5 +122,16 @@ public class SettingsActivity extends AppCompatActivity {
         editor.putString("imie", imie);
         editor.putString("limitWodyMl", limitWodyMl);
         editor.apply();
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        calendar = Calendar.getInstance();
+        simpleDateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss");
+        dateTime = simpleDateFormat.format(calendar.getTime()).toString();
+
+        format1.setText(dateTime);
     }
 }
