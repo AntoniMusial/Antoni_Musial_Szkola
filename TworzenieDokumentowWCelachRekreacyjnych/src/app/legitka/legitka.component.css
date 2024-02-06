@@ -1,0 +1,46 @@
+h1 {
+    font-size: 2.3vw;
+}
+
+.container-generator {
+    background-image: url("legit.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    -webkit-box-shadow: 0px 0vw 2vw 1vw rgba(25, 25, 25, 0.6);
+    -moz-box-shadow: 0px 0vw 2vw 1vw rgba(25, 25, 25, 0.6);
+    box-shadow: 0px 1vw 0vw 1vw rgba(25, 25, 25, 0.6);
+    border-radius: 1vw;
+    width: 75vw;
+    height: 70vh;
+    margin-bottom: 10vh;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 1000;
+    font-size: 1vw;
+    color: black;
+}
+
+.column {
+    float: left;
+    width: 33.33%;
+}
+
+input {
+    color: black;
+    font-size: 1vw;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 1000;
+    background-color: #ffffff00;
+    border: none;
+    border-bottom: 0.1vw solid black;
+    letter-spacing: -0.1vw;
+}
+
+input::placeholder {
+    color: black;
+    font-size: 1vw;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: 1000;
+
+}
