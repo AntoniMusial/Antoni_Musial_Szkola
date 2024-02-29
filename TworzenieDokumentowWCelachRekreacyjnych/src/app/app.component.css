@@ -63,19 +63,21 @@ main {
 
 footer {
     position: fixed;
-    padding: 0;
+    padding: 0.5vw;
     width: 100vw;
-    height: 5vh;
     margin: 0;
     bottom: 0;
-    transition: (-50%);
-    font-size: 1vw;
     background-color: #151515;
+    text-align: center;
+
+    .autor {
+        font-size: 1vw;
+    }
 }
 
 header {
     width: 90vw;
-    height: 15vh;
+    height: 25vh;
     border-radius: 3vw;
     padding: 2vw;
     margin-left: auto;
