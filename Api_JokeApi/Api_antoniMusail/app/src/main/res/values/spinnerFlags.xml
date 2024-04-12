@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinnerFlags">
+        <item>nsfw</item>
+        <item>religious</item>
+        <item>political</item>
+        <item>racist</item>
+        <item>sexist</item>
+        <item>explicit</item>
+    </string-array>
+</resources>

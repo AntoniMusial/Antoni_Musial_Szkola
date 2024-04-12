@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinnerLanguages">
+        <item>en - English</item>
+        <item>cs - Czech</item>
+        <item>de - German</item>
+        <item>es - Spanish</item>
+        <item>fr - French</item>
+        <item>pt - Portuguese</item>
+    </string-array>
+</resources>
