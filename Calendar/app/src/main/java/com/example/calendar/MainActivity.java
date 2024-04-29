@@ -13,11 +13,12 @@ import java.text.Format;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.Calendar;
-import java.util.Date;
 
 public class MainActivity extends AppCompatActivity {
+    TextView yearHeaderText;
     Calendar calendar;
     LocalDate date;
+    LocalDate monthLocalDate;
     SimpleDateFormat simpleDateFormat;
     Format f;
     TextView showDateText;
@@ -28,31 +29,47 @@ public class MainActivity extends AppCompatActivity {
     Button rightArrow;
     TextView monthText;
     int delay = 100;
-    String month;
+    int numberYear;
+    String textYear;
     int numberMonth;
     String month_text;
+    int monthCounter = 0;
+    int yearCounter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        yearHeaderText = findViewById(R.id.yearHeaderText);
         showDateText = findViewById(R.id.showDateText);
         monthText = findViewById(R.id.monthText);
         leftArrow = findViewById(R.id.leftArrow);
         rightArrow = findViewById(R.id.rightArrow);
 
-        date = LocalDate.parse("2018-11-27");
+        date = LocalDate.now();
+        monthLocalDate = LocalDate.now();
         time();
         getMonth();
         setMonth();
+        getYear();
+        setYear();
 
         leftArrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                numberMonth = date.getMonthValue();
                 Toast.makeText(MainActivity.this, "left arrow clicked", Toast.LENGTH_SHORT).show();
+                monthCounter --;
+                monthLocalDate = date.plusMonths(monthCounter);
 
+                if (monthLocalDate.getMonthValue() == 12) {
+                    date = date.plusYears(-1);
+                }
+
+                getMonth();
+                setMonth();
+                getYear();
+                setYear();
             }
         });
 
@@ -60,15 +77,27 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, "right arrow clicked", Toast.LENGTH_SHORT).show();
-                date.plusMonths(1);
+                monthCounter ++;
+                monthLocalDate = date.plusMonths(monthCounter);
+
+                if (monthLocalDate.getMonthValue() == 1) {
+                    date = date.plusYears(1);
+                }
+
                 getMonth();
                 setMonth();
+                getYear();
+                setYear();
             }
         });
     }
 
     @Override
     protected void onStart() {
+        date = LocalDate.now();
+        monthLocalDate = LocalDate.now();
+        getYear();
+        setYear();
         getMonth();
         setMonth();
         super.onStart();
@@ -76,6 +105,10 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onResume() {
+        getYear();
+        setYear();
+        getMonth();
+
         handler.postDelayed(runnable = new Runnable() {
             public void run() {
                 time();
@@ -93,8 +126,18 @@ public class MainActivity extends AppCompatActivity {
         showDateText.setText(time);
     }
 
+    public void getYear() {
+        numberYear = date.getYear();
+    }
+
+    public void setYear() {
+        textYear = Integer.toString(numberYear);
+        yearHeaderText.setText(textYear);
+    }
+
     public void getMonth() {
-        numberMonth = date.getMonthValue();
+        monthLocalDate.getMonth();
+        numberMonth = monthLocalDate.getMonthValue();
     }
 
     public void setMonth() {
