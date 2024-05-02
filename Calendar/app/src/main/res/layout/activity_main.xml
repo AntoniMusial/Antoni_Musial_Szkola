@@ -24,12 +24,11 @@
         android:id="@+id/yearHeaderText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="156dp"
+        android:layout_marginTop="60dp"
         android:text="Year"
         android:textColor="#FFFFFF"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/showDateText" />
 
@@ -73,8 +72,8 @@
     </LinearLayout>
 
     <TableLayout
-        android:layout_width="388dp"
-        android:layout_height="192dp"
+        android:layout_width="393dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:background="#191919"
         app:layout_constraintEnd_toEndOf="parent"
@@ -82,15 +81,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout">
 
-        <TableRow>
+        <TableRow android:padding="6dp" android:background="@drawable/top_border">
 
             <TextView
                 android:id="@+id/cell1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="1"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
@@ -99,9 +100,11 @@
                 android:id="@+id/cell2"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="2"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
@@ -110,9 +113,11 @@
                 android:id="@+id/cell3"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="3"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
@@ -121,9 +126,11 @@
                 android:id="@+id/cell4"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="4"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
@@ -132,9 +139,11 @@
                 android:id="@+id/cell5"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="5"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
@@ -143,9 +152,11 @@
                 android:id="@+id/cell6"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="6"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
@@ -154,23 +165,27 @@
                 android:id="@+id/cell7"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="7"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
         </TableRow>
 
-        <TableRow>
+        <TableRow android:padding="6dp" android:background="@drawable/top_border">
 
             <TextView
                 android:id="@+id/cell8"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="8"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
@@ -179,9 +194,11 @@
                 android:id="@+id/cell9"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="9"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
@@ -190,9 +207,11 @@
                 android:id="@+id/cell10"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="10"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
@@ -201,9 +220,11 @@
                 android:id="@+id/cell11"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="11"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
@@ -212,9 +233,11 @@
                 android:id="@+id/cell12"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="12"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
@@ -223,9 +246,11 @@
                 android:id="@+id/cell13"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="13"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
@@ -234,23 +259,27 @@
                 android:id="@+id/cell14"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="14"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
         </TableRow>
 
-        <TableRow>
+        <TableRow android:padding="6dp" android:background="@drawable/top_border">
 
             <TextView
                 android:id="@+id/cell15"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="15"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
@@ -259,9 +288,11 @@
                 android:id="@+id/cell16"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="16"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
@@ -270,9 +301,11 @@
                 android:id="@+id/cell17"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="17"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
@@ -281,9 +314,11 @@
                 android:id="@+id/cell18"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="18"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
@@ -292,9 +327,11 @@
                 android:id="@+id/cell19"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="19"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
@@ -303,9 +340,11 @@
                 android:id="@+id/cell20"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="20"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
@@ -314,23 +353,27 @@
                 android:id="@+id/cell21"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="21"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
         </TableRow>
 
-        <TableRow>
+        <TableRow android:padding="6dp" android:background="@drawable/top_border">
 
             <TextView
                 android:id="@+id/cell22"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="22"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
@@ -339,9 +382,11 @@
                 android:id="@+id/cell23"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="23"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
@@ -350,9 +395,11 @@
                 android:id="@+id/cell24"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="24"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
@@ -361,9 +408,11 @@
                 android:id="@+id/cell25"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="25"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
@@ -372,9 +421,11 @@
                 android:id="@+id/cell26"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="26"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
@@ -383,9 +434,11 @@
                 android:id="@+id/cell27"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="27"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
@@ -394,23 +447,30 @@
                 android:id="@+id/cell28"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="28"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
         </TableRow>
 
-        <TableRow android:layout_width="wrap_content">
+        <TableRow
+            android:layout_width="wrap_content"
+            android:padding="6dp"
+            android:background="@drawable/top_border">
 
             <TextView
                 android:id="@+id/cell29"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="29"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
@@ -419,9 +479,11 @@
                 android:id="@+id/cell30"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="30"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>
@@ -430,9 +492,11 @@
                 android:id="@+id/cell31"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
+                android:layout_marginHorizontal="3dp"
                 android:layout_weight="4"
+                android:background="@drawable/border"
                 android:gravity="center_horizontal"
-                android:padding="10sp"
+                android:paddingVertical="25dp"
                 android:text="31"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"></TextView>

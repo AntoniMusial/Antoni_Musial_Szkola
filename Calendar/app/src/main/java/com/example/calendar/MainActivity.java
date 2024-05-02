@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
     String month_text;
     int monthCounter = 0;
     int yearCounter = 0;
+    int monthLength;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,6 +89,7 @@ public class MainActivity extends AppCompatActivity {
                 setMonth();
                 getYear();
                 setYear();
+                setCalendarDays();
             }
         });
     }
@@ -170,5 +172,16 @@ public class MainActivity extends AppCompatActivity {
         }
 
         monthText.setText(month_text);
+    }
+
+    public void getMonthLength() {
+        monthLength = monthLocalDate.lengthOfMonth();
+    }
+
+    public void setCalendarDays() {
+        getMonthLength();
+        String mounthLength = Integer.toString(monthLength);
+
+        Toast.makeText(this, mounthLength, Toast.LENGTH_SHORT).show();
     }
 }
