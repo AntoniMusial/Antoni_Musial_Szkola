@@ -13,9 +13,10 @@
         android:layout_height="wrap_content"
         android:text="Time"
         android:textColor="#FFFFFF"
-        android:textSize="24sp"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.025"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.022" />
@@ -24,64 +25,67 @@
         android:id="@+id/yearHeaderText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="60dp"
+        android:layout_marginTop="4dp"
         android:text="Year"
         android:textColor="#FFFFFF"
-        android:textSize="34sp"
+        android:textSize="48sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/showDateText" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <TextView
+        android:id="@+id/leftArrow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/border_top_curved"
+        android:paddingHorizontal="9dp"
+        android:text="←"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/yearHeaderText">
+        app:layout_constraintTop_toBottomOf="@+id/yearHeaderText" />
 
-        <Button
-            android:id="@+id/leftArrow"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#00FFFFFF"
-            android:text="←"
-            android:textColor="#FFFFFF"
-            android:textSize="48sp" />
+    <TextView
+        android:id="@+id/monthText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="Month"
+        android:textAlignment="center"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toStartOf="@+id/rightArrow"
+        app:layout_constraintStart_toEndOf="@+id/leftArrow"
+        app:layout_constraintTop_toBottomOf="@+id/yearHeaderText" />
 
-        <TextView
-            android:id="@+id/monthText"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="48dp"
-            android:text="Month"
-            android:textAlignment="center"
-            android:textColor="#FFFFFF"
-            android:textSize="24sp" />
-
-        <Button
-            android:id="@+id/rightArrow"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="#00FFFFFF"
-            android:text="→"
-            android:textColor="#FFFFFF"
-            android:textSize="48sp" />
-    </LinearLayout>
+    <TextView
+        android:id="@+id/rightArrow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:layout_marginEnd="16dp"
+        android:background="@drawable/border_top_curved"
+        android:paddingHorizontal="9dp"
+        android:text="→"
+        android:textColor="#FFFFFF"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/yearHeaderText" />
 
     <TableLayout
         android:layout_width="393dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
         android:background="#191919"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintTop_toBottomOf="@+id/monthText">
 
-        <TableRow android:padding="6dp" android:background="@drawable/top_border">
+        <TableRow
+            android:layout_marginVertical="5dp"
+            android:background="@drawable/top_border"
+            android:padding="6dp">
 
             <TextView
                 android:id="@+id/cell1"
@@ -93,8 +97,9 @@
                 android:gravity="center_horizontal"
                 android:paddingVertical="25dp"
                 android:text="1"
+                android:textAlignment="center"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
 
             <TextView
                 android:id="@+id/cell2"
@@ -107,7 +112,7 @@
                 android:paddingVertical="25dp"
                 android:text="2"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
 
             <TextView
                 android:id="@+id/cell3"
@@ -120,7 +125,7 @@
                 android:paddingVertical="25dp"
                 android:text="3"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
 
             <TextView
                 android:id="@+id/cell4"
@@ -133,7 +138,7 @@
                 android:paddingVertical="25dp"
                 android:text="4"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
 
             <TextView
                 android:id="@+id/cell5"
@@ -146,7 +151,7 @@
                 android:paddingVertical="25dp"
                 android:text="5"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
 
             <TextView
                 android:id="@+id/cell6"
@@ -159,7 +164,7 @@
                 android:paddingVertical="25dp"
                 android:text="6"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
 
             <TextView
                 android:id="@+id/cell7"
@@ -172,10 +177,13 @@
                 android:paddingVertical="25dp"
                 android:text="7"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
         </TableRow>
 
-        <TableRow android:padding="6dp" android:background="@drawable/top_border">
+        <TableRow
+            android:layout_marginVertical="5dp"
+            android:background="@drawable/top_border"
+            android:padding="6dp">
 
             <TextView
                 android:id="@+id/cell8"
@@ -188,7 +196,7 @@
                 android:paddingVertical="25dp"
                 android:text="8"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
 
             <TextView
                 android:id="@+id/cell9"
@@ -201,7 +209,7 @@
                 android:paddingVertical="25dp"
                 android:text="9"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
 
             <TextView
                 android:id="@+id/cell10"
@@ -214,7 +222,7 @@
                 android:paddingVertical="25dp"
                 android:text="10"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
 
             <TextView
                 android:id="@+id/cell11"
@@ -227,7 +235,7 @@
                 android:paddingVertical="25dp"
                 android:text="11"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
 
             <TextView
                 android:id="@+id/cell12"
@@ -240,7 +248,7 @@
                 android:paddingVertical="25dp"
                 android:text="12"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
 
             <TextView
                 android:id="@+id/cell13"
@@ -253,7 +261,7 @@
                 android:paddingVertical="25dp"
                 android:text="13"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
 
             <TextView
                 android:id="@+id/cell14"
@@ -266,10 +274,13 @@
                 android:paddingVertical="25dp"
                 android:text="14"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
         </TableRow>
 
-        <TableRow android:padding="6dp" android:background="@drawable/top_border">
+        <TableRow
+            android:layout_marginVertical="5dp"
+            android:background="@drawable/top_border"
+            android:padding="6dp">
 
             <TextView
                 android:id="@+id/cell15"
@@ -282,7 +293,7 @@
                 android:paddingVertical="25dp"
                 android:text="15"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
 
             <TextView
                 android:id="@+id/cell16"
@@ -295,7 +306,7 @@
                 android:paddingVertical="25dp"
                 android:text="16"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
 
             <TextView
                 android:id="@+id/cell17"
@@ -308,7 +319,7 @@
                 android:paddingVertical="25dp"
                 android:text="17"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
 
             <TextView
                 android:id="@+id/cell18"
@@ -321,7 +332,7 @@
                 android:paddingVertical="25dp"
                 android:text="18"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
 
             <TextView
                 android:id="@+id/cell19"
@@ -334,7 +345,7 @@
                 android:paddingVertical="25dp"
                 android:text="19"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
 
             <TextView
                 android:id="@+id/cell20"
@@ -347,7 +358,7 @@
                 android:paddingVertical="25dp"
                 android:text="20"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
 
             <TextView
                 android:id="@+id/cell21"
@@ -360,10 +371,13 @@
                 android:paddingVertical="25dp"
                 android:text="21"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
         </TableRow>
 
-        <TableRow android:padding="6dp" android:background="@drawable/top_border">
+        <TableRow
+            android:layout_marginVertical="5dp"
+            android:background="@drawable/top_border"
+            android:padding="6dp">
 
             <TextView
                 android:id="@+id/cell22"
@@ -376,7 +390,7 @@
                 android:paddingVertical="25dp"
                 android:text="22"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
 
             <TextView
                 android:id="@+id/cell23"
@@ -389,7 +403,7 @@
                 android:paddingVertical="25dp"
                 android:text="23"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
 
             <TextView
                 android:id="@+id/cell24"
@@ -402,7 +416,7 @@
                 android:paddingVertical="25dp"
                 android:text="24"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
 
             <TextView
                 android:id="@+id/cell25"
@@ -415,7 +429,7 @@
                 android:paddingVertical="25dp"
                 android:text="25"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
 
             <TextView
                 android:id="@+id/cell26"
@@ -428,7 +442,7 @@
                 android:paddingVertical="25dp"
                 android:text="26"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
 
             <TextView
                 android:id="@+id/cell27"
@@ -441,7 +455,7 @@
                 android:paddingVertical="25dp"
                 android:text="27"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
 
             <TextView
                 android:id="@+id/cell28"
@@ -454,13 +468,14 @@
                 android:paddingVertical="25dp"
                 android:text="28"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
         </TableRow>
 
         <TableRow
             android:layout_width="wrap_content"
-            android:padding="6dp"
-            android:background="@drawable/top_border">
+            android:layout_marginVertical="5dp"
+            android:background="@drawable/top_border"
+            android:padding="6dp">
 
             <TextView
                 android:id="@+id/cell29"
@@ -473,7 +488,7 @@
                 android:paddingVertical="25dp"
                 android:text="29"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
 
             <TextView
                 android:id="@+id/cell30"
@@ -486,7 +501,7 @@
                 android:paddingVertical="25dp"
                 android:text="30"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
 
             <TextView
                 android:id="@+id/cell31"
@@ -499,7 +514,7 @@
                 android:paddingVertical="25dp"
                 android:text="31"
                 android:textColor="#FFFFFF"
-                android:textSize="14sp"></TextView>
+                android:textSize="16sp"></TextView>
         </TableRow>
 
     </TableLayout>
